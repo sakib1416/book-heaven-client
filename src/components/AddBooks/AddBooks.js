@@ -15,7 +15,7 @@ const AddBooks = () => {
       category: data.category,
       imageURL: imageURL
     };
-    const url = `http://localhost:5000/addBook`;
+    const url = `https://desolate-atoll-12069.herokuapp.com/addBook`;
     
     fetch(url, {
       method: 'POST', 
