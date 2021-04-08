@@ -15,6 +15,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Orders from "./components/Orders/Orders";
+import CheckOut from "./components/CheckOut/CheckOut";
 
 //need to export so that every component can access it
 export const UserContext = createContext();
@@ -33,12 +34,10 @@ function App() {
           <Route path = "/login">
             <Login></Login>
           </Route>
-          <Route path = "/orders">
+          <PrivateRoute path = "/orders">
             <Orders></Orders>
-          </Route>
-          <Route path = "/books">
-            <Book></Book>
-          </Route>
+          </PrivateRoute>
+          
           <Route path = "/deals">
             <Deals></Deals>
           </Route>
@@ -50,6 +49,9 @@ function App() {
           <Route path = "/addBooks">
             <AddBooks></AddBooks>
           </Route>
+          <PrivateRoute path = "/books/:id">
+            <CheckOut></CheckOut>
+          </PrivateRoute>
           {/* exact is needed to specify the home page route */}
           <Route exact path="/">
             <Home></Home>

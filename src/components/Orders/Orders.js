@@ -1,44 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import OrderDetails from '../OrderDetails/OrderDetails';
 
 const Orders = () => {
+    const [orders, setOrders] = useState([{}]);
+
+    useEffect(()=>{
+        fetch("http://localhost:5000/orders")
+        .then(response => response.json())
+        .then(data => setOrders(data))
+    },[])
     return (
         <div>
-            <Container>
-                <Row>
-                    <Col>
-                        <Card>Hello</Card>
-                    </Col>
-                    <Col>
-                        <Card>Hi</Card>
-                    </Col>
-                    <Col>
-                        <Card>Hallo</Card>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Card>Hello</Card>
-                    </Col>
-                    <Col>
-                        <Card>Hi</Card>
-                    </Col>
-                    <Col>
-                        <Card>Hallo</Card>
-                    </Col>
-                    </Row>
-                    <Row>
-                    <Col>
-                        <Card>Hello</Card>
-                    </Col>
-                    <Col>
-                        <Card>Hi</Card>
-                    </Col>
-                    <Col>
-                        <Card>Hallo</Card>
-                    </Col>
-                </Row>
-            </Container>
+            {
+                orders.map(order => <OrderDetails order = {order}></OrderDetails>)
+            }
         </div>
     );
 };

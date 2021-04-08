@@ -18,8 +18,6 @@ const Header = () => {
                                 {/* IMPORT NavLink from react-router-dom */}
                                 <NavLink style={{padding: '5px'}} to="/">Home</NavLink>
                                 <NavLink style={{padding: '5px'}} to="/orders">Orders</NavLink>
-                                <NavLink style={{padding: '5px'}} to="/addBooks">Add Books</NavLink>
-                                
                                 <NavLink style={{padding: '5px'}} to="/deals">Deals</NavLink>
                                 {
                                     loggedInUser.email && <NavLink style={{padding: '5px'}} to="/admin">Admin</NavLink>
