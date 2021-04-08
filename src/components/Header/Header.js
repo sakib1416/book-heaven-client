@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -15,10 +17,17 @@ const Header = () => {
                             <Form inline>
                                 {/* IMPORT NavLink from react-router-dom */}
                                 <NavLink style={{padding: '5px'}} to="/">Home</NavLink>
-                                <NavLink style={{padding: '5px'}} to="/products">Products</NavLink>
-                                <NavLink style={{padding: '5px'}} to="/admin">Admin</NavLink>
+                                <NavLink style={{padding: '5px'}} to="/orders">Orders</NavLink>
+                                <NavLink style={{padding: '5px'}} to="/addBooks">Add Books</NavLink>
+                                
                                 <NavLink style={{padding: '5px'}} to="/deals">Deals</NavLink>
-                                <NavLink style={{padding: '5px'}} to="/login">Login</NavLink>
+                                {
+                                    loggedInUser.email && <NavLink style={{padding: '5px'}} to="/admin">Admin</NavLink>
+                                }
+                                {
+                                    
+                                    loggedInUser.email ? <NavLink style={{padding: '5px'}} to="/login">Log Out</NavLink> : <NavLink style={{padding: '5px'}} to="/login">Login</NavLink>
+                                }
                             </Form>
                         </Navbar.Collapse>
             </Navbar>

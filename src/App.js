@@ -6,13 +6,15 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
+import AddBooks from "./components/AddBooks/AddBooks";
 import Admin from "./components/Admin/Admin";
+import Book from "./components/Book/Book";
 import Deals from "./components/Deals/Deals";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Products from './components/Products/Products';
+import Orders from "./components/Orders/Orders";
 
 //need to export so that every component can access it
 export const UserContext = createContext();
@@ -31,16 +33,23 @@ function App() {
           <Route path = "/login">
             <Login></Login>
           </Route>
-          <Route path = "/products">
-            <Products></Products>
+          <Route path = "/orders">
+            <Orders></Orders>
+          </Route>
+          <Route path = "/books">
+            <Book></Book>
           </Route>
           <Route path = "/deals">
             <Deals></Deals>
           </Route>
+          
           {/* first make a PrivateRoute component */}
           <PrivateRoute path = "/admin">
             <Admin></Admin>
           </PrivateRoute>
+          <Route path = "/addBooks">
+            <AddBooks></AddBooks>
+          </Route>
           {/* exact is needed to specify the home page route */}
           <Route exact path="/">
             <Home></Home>

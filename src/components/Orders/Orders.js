@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
-const Products = () => {
+const Orders = () => {
     return (
         <div>
             <Container>
@@ -43,4 +43,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Orders;
