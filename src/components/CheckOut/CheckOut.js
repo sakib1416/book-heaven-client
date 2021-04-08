@@ -8,7 +8,7 @@ const CheckOut = () => {
     const [cart, setCart] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(()=>{
-        fetch("http://localhost:5000/books/"+id)
+        fetch("https://desolate-atoll-12069.herokuapp.com/books/"+id)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -20,7 +20,7 @@ const CheckOut = () => {
         const newOrder = {...cart};
         newOrder.date = new Date();
         newOrder.customerName = loggedInUser.name;
-        fetch("http://localhost:5000/addOrder", {
+        fetch("https://desolate-atoll-12069.herokuapp.com/addOrder", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
